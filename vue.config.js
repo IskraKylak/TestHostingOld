@@ -17,5 +17,5 @@ module.exports = {
          }
       }
    },
-   publicPath: '/testhosting/'
+   publicPath: '/TestHosting/'
 }
