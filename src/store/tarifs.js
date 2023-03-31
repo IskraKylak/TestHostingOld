@@ -13,10 +13,10 @@ export default {
             commit('SET_TARIFS', payload)
         },
         GET_TARIFS_FROM_API({commit}) {
-            return fetch("http://localhost:3000/post")
+            return fetch("./tarif.json")
             .then((response) => response.json())
             .then((data) => {
-                commit('SET_TARIFS', data)
+                commit('SET_TARIFS', data.post)
                 return data
             }).catch((error) => {
                 // console.log(error)
