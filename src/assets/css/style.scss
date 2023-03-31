@@ -1,0 +1,58 @@
+@use "sass:math";
+
+$mobile-width: 414;
+$tablet-width: 768;
+$desktop-width: 1440;
+
+@function vw($px, $device-width) {
+    $result: math.div($px, $device-width) * 100vw;
+    @return $result;
+}
+
+@function mobile-vw($px) {
+    $result: vw($px, $mobile-width);
+    @return $result;
+}
+
+@function tablet-vw($px) {
+    $result: vw($px, $tablet-width);
+    @return $result;
+}
+
+@function desktop-vw($px) {
+    $result: vw($px, $desktop-width);
+    @return $result;
+}
+
+$tablet: 1199.5px;
+$mobile: 767.5px;
+
+body{
+  font-family: 'OpenSans';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: desktop-vw(1158);
+    padding: 0 desktop-vw(15);
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+  }
+  
+  @media screen and (max-width: $tablet) {
+  }
+  @media screen and (max-width: $mobile) {
+    .container {
+      max-width: mobile-vw(1158);
+      padding: 0 mobile-vw(20);
+      margin-right: auto;
+      margin-left: auto;
+      height: 100%;
+    }
+  }
