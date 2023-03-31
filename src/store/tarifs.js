@@ -16,11 +16,10 @@ export default {
             return fetch("http://localhost:3000/post")
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 commit('SET_TARIFS', data)
                 return data
             }).catch((error) => {
-                console.log(error)
+                // console.log(error)
                 return error
             });
         }
