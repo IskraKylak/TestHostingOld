@@ -9,12 +9,12 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in content" :key="item.id">
-            <td>{{ item.name }}</td>
-            <td>{{ item.cpu }} CPU Units</td>
-            <td>{{ item.ram }}MB</td>
-            <td>{{ item.size }}GB SSD</td>
+            <td><span class="name">{{ item.name }}</span></td>
+            <td><span class="cpu">{{ item.cpu }}</span> CPU Units</td>
+            <td><span class="ram">{{ item.ram }}</span>MB</td>
+            <td><span class="size">{{ item.size }}</span>GB SSD</td>
             <td v-if="typePage === 'Home'">
-                <button class="button is-primary" @click="this.$emit('addTarif', item)">
+                <button class="button is-primary add-tarif-button" @click="this.$emit('addTarif', item)">
                 <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                 </span>

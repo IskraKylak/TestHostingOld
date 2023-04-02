@@ -1,14 +1,14 @@
 export default {
     state: {
-        mytraifs: JSON.parse(localStorage.getItem('mytraifs')) || [],
+        mytarifs: JSON.parse(localStorage.getItem('mytraifs')) || [],
     },
     mutations: {
         ADD_MYTARIFS (state, payload) {
-            state.mytraifs.push(payload)
-            localStorage.setItem('mytraifs', JSON.stringify(state.mytraifs))
+            state.mytarifs.push(payload)
+            localStorage.setItem('mytraifs', JSON.stringify(state.mytarifs))
         },
         CHANGE_MYTARIFS (state, payload) {
-            state.mytraifs[payload.idx] = payload.item
+            state.mytarifs[payload.idx] = payload.item
         },
     },
     actions: {
@@ -21,7 +21,7 @@ export default {
     },
     getters: {
         MYTARIFS (state) {
-            return state.mytraifs
+            return state.mytarifs
         },
     },
     modules: {

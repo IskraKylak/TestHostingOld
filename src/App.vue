@@ -7,19 +7,19 @@
   <div id="message" class="hidden-xs"></div>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
-export default {
-  methods: {
-    ...mapActions([
-        'GET_TARIFS_FROM_API',
-    ]),
-  },
-  mounted() {
-    this.GET_TARIFS_FROM_API()
-  }
-};
+  import {mapActions, mapGetters} from 'vuex'
+  export default {
+    methods: {
+      ...mapActions([
+          'GET_TARIFS_FROM_API',
+      ]),
+    },
+    mounted() {
+      this.GET_TARIFS_FROM_API()
+    }
+  };
 </script>
-<style lang="less">
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

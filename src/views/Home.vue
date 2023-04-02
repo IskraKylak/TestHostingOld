@@ -12,17 +12,6 @@ export default {
   components: {
       cTable
   },
-  data() {
-    return {
-      headers: [
-        { text: 'Название'},
-        { text: 'CPU'},
-        { text: 'RAM'},
-        { text: 'Disk Size'}
-      ],
-      search: ''
-    }
-  },
   methods: {
     ...mapActions([
         'ADD_MYTARIFS'
