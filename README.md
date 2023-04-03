@@ -1,4 +1,4 @@
-# testhosting2
+# testing2
 
 ## Project setup
 ```

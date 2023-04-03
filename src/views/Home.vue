@@ -1,27 +1,31 @@
 <template>
   <div class="table-container">
-    <cTable v-if="TARIFS.length" :content="TARIFS" :typePage="'Home'" @addTarif="addTarif"/>
+    <CTable :content="TARIFS" :typePage="'Home'" @addTarif="addTarif"/>
+    
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
-import cTable from '@/components/cTable'
+import {mapActions, mapGetters} from 'vuex';
+import CTable from '@/components/CTable';
 export default {
-  name: 'HomeView',
+  name: 'Home',
   components: {
-      cTable
+    CTable,
   },
   methods: {
     ...mapActions([
         'ADD_MYTARIFS'
     ]),
-    addTarif(data) {
-        this.ADD_MYTARIFS(data)
-        this.$message('Тариф был добавлен!')
+    message () {
+      this.$message('Тариф был добавлен!')
         this.$router.push({
             name: 'mytarifs',
         })
+    },
+    addTarif(data) {
+        this.ADD_MYTARIFS(data)
+        this.message()
     }
   },
   computed: {

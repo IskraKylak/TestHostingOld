@@ -8,7 +8,7 @@
           <button class="delete" aria-label="close" @click="closeModal"></button>
         </header>
         <section class="modal-card-body">
-            <cTable v-if="TARIFS.length" :content="TARIFS" :typePage="'Modal'" @cahngeTarif="cahngeTarif" />
+            <CTable v-if="TARIFS.length" :content="TARIFS" :typePage="'Modal'" @cahngeTarif="cahngeTarif" />
         </section>
 
       </div>
@@ -18,10 +18,10 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
-import cTable from '@/components/cTable'
+import CTable from '@/components/CTable'
 export default {
     components: {
-        cTable
+        CTable
     },
     data() {
         return {

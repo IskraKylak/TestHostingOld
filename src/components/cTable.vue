@@ -15,23 +15,23 @@
             <td><span class="size">{{ item.size }}</span>GB SSD</td>
             <td v-if="typePage === 'Home'">
                 <button class="button is-primary add-tarif-button" @click="this.$emit('addTarif', item)">
-                <span class="icon is-small">
-                    <i class="fas fa-plus"></i>
-                </span>
-                <span>Add</span>
+                  <span class="icon is-small">
+                      <i class="fas fa-plus"></i>
+                  </span>
+                  <span>Add</span>
                 </button>
             </td>
             <td v-if="typePage === 'MyTarifs'">
-                <button class="button is-primary" @click="openModal(item, index)">
-                <span class="icon is-small">
-                    <i class="fas fa-chevron-up"></i>
-                    <i class="fas fa-chevron-down"></i>
-                </span>
-                <span>downgrade/upgrade</span>
+                <button class="button is-primary select-tarif-button" @click="openModal(item, index)">
+                  <span class="icon is-small">
+                      <i class="fas fa-chevron-up"></i>
+                      <i class="fas fa-chevron-down"></i>
+                  </span>
+                  <span>downgrade/upgrade</span>
                 </button>
             </td>
-            <td v-if="typePage === 'Modal' && SELECTEDT">
-                <button class="button is-primary" v-if="typeBtn(item) === 'up'" @click="upgrade(item)">
+            <td v-if="typePage === 'Modal' && SELECTED">
+                <button class="button is-primary upgrade-tarif-button" v-if="typeBtn(item) === 'up'" @click="upgrade(item)">
                     <span class="icon is-small">
                         <i class="fas fa-chevron-up"></i>
                     </span>
@@ -53,6 +53,7 @@
 <script>
 import {mapActions, mapGetters} from 'vuex'
 export default {
+    name: 'CTable',
     props:['content','typePage'],
     data() {
         return {
@@ -67,30 +68,30 @@ export default {
     methods: {
         upgrade(item) {
             const obj = {
-                idx: this.SELECTEDT.idx,
+                idx: this.SELECTED.idx,
                 item: item
             }
             this.$emit('cahngeTarif', obj)
         },
         downgrade (item) {
-            if(item.size !== this.SELECTEDT.item.size) {
+            if(item.size !== this.SELECTED.item.size) {
                 this.$message('Процедура разрешена лишь для тарифов с одинаĸовым размером дисĸов')
             } else {
                 this.upgrade(item)
             }
         },
         typeBtn(item) {
-            if(this.SELECTEDT) {
-                if(item.size > this.SELECTEDT.item.size) {
+            if(this.SELECTED) {
+                if(item.size > this.SELECTED.item.size) {
                     return 'up'
                 }
-                if(item.size < this.SELECTEDT.item.size) {
+                if(item.size < this.SELECTED.item.size) {
                     return 'down'
                 }
-                if(item.size == this.SELECTEDT.item.size) {
-                    if(item.id == this.SELECTEDT.item.id)
+                if(item.size == this.SELECTED.item.size) {
+                    if(item.id == this.SELECTED.item.id)
                         return 'your'
-                    else if (item.id > this.SELECTEDT.item.id)
+                    else if (item.id > this.SELECTED.item.id)
                         return 'up'
                     else
                         return 'down'
@@ -107,7 +108,7 @@ export default {
     },
     computed: {
       ...mapGetters([
-          'SELECTEDT',
+          'SELECTED',
       ]),
   }
 }

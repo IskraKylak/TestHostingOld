@@ -1,5 +1,5 @@
 {
-  "name": "testhosting2",
+  "name": "testing2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "bulma": "^0.9.4",
-    "json-server": "^0.17.3",
+    "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.21.4",
+    "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-unit-jest": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
@@ -34,6 +34,6 @@
     "not ie 11"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/no-babel"
+    "preset": "@vue/cli-plugin-unit-jest"
   }
 }

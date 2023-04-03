@@ -1,21 +1,15 @@
-export default {
-  install (app, options) {
+const message = {
+  install (app) {
     app.config.globalProperties.$message = function (html) {
+      const messageDiv = document.createElement('div');
+        messageDiv.setAttribute('id', 'message');
+        messageDiv.innerText = html;
+        document.body.appendChild(messageDiv);
       setTimeout(function() {
-          document.getElementById("message").classList.add('hidden-xs');
+        document.body.removeChild(messageDiv);
       }, 3000)
-      
-      document.getElementById("message").innerHTML = html
-      document.getElementById("message").classList.remove('hidden-xs');
-    }
-
-    app.config.globalProperties.$error = function (html) {
-      setTimeout(function() {
-          document.getElementById("message").classList.add('hidden-xs');
-      }, 3000)
-      
-      document.getElementById("message").innerHTML = html
-      document.getElementById("message").classList.remove('hidden-xs');
     }
   }
 }
+
+export default message;

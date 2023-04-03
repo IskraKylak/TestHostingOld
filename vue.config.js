@@ -1,7 +1,8 @@
+const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack');
-
-module.exports = {
-   lintOnSave: false,
+module.exports = defineConfig({
+  transpileDependencies: true,
+  lintOnSave: false,
    configureWebpack: {
       plugins: [
          new webpack.ProvidePlugin({
@@ -18,4 +19,5 @@ module.exports = {
       }
    },
    publicPath: '/TestHosting/'
-}
+})
+

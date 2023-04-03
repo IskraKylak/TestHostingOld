@@ -1,21 +1,21 @@
 export default {
     state: {
-        selectedt: null,
+        selected: null,
     },
     mutations: {
-        SET_SELECTEDT (state, payload) {
-            state.selectedt = payload
+        SET_SELECTED (state, payload) {
+            state.selected = payload
         },
         
     },
     actions: {
-        SET_SELECTEDT({commit}, payload) {
-            commit('SET_SELECTEDT', payload)
+        SET_SELECTED({commit}, payload) {
+            commit('SET_SELECTED', payload)
         },
     },
     getters: {
-        SELECTEDT (state) {
-            return state.selectedt
+        SELECTED (state) {
+            return state.selected
         },
     },
     modules: {

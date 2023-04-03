@@ -19,7 +19,6 @@ export default {
                 commit('SET_TARIFS', data.post)
                 return data
             }).catch((error) => {
-                // console.log(error)
                 return error
             });
         }

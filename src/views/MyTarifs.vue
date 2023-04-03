@@ -1,18 +1,19 @@
 <template>
   <div class="table-container">
-    <cTable v-if="MYTARIFS.length" :content="MYTARIFS" :typePage="'MyTarifs'" @openModal="openModal" />
+    <CTable v-if="MYTARIFS.length" :content="MYTARIFS" :typePage="'MyTarifs'" @openModal="openModal" />
     <cModal  @cahngeTarif="cahngeTarif" />
   </div>
 </template>
 
 <script>
 import cModal from '@/components/cModal'
-import cTable from '@/components/cTable'
+import CTable from '@/components/CTable'
 import {mapActions, mapGetters} from 'vuex'
 export default {
+  name: 'MyTarifs',
     components: {
       cModal,
-      cTable
+      CTable
     },
    data() {
     return {
@@ -36,10 +37,10 @@ export default {
     },
     ...mapActions([
         'setModalActive',
-        'SET_SELECTEDT'
+        'SET_SELECTED'
     ]),
     openModal (data) {
-      this.SET_SELECTEDT(data)
+      this.SET_SELECTED(data)
       this.setModalActive(true)
     },
     ...mapActions([
@@ -50,7 +51,7 @@ export default {
   computed: {
       ...mapGetters([
           'MYTARIFS',
-          'SELECTEDT'
+          'SELECTED'
       ]),
   }
 };
